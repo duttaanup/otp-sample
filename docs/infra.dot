@@ -1,0 +1,18 @@
+digraph INFRA {
+  node [ color = "black", fillcolor = "#E6E6E6", height =1, style = "filled,bold,rounded", fontname = "Arial" ];
+  "UserRegistration" [ label = "UserRegistration
+(AWS::DynamoDB::Table)", shape =cylinder, fillcolor = "#FFCFB3" ];
+  "otp_pinpoint_project" [ label = "otp_pinpoint_project
+(AWS::Pinpoint::App)", shape =rectangle ];
+  "sendOtpFunction" [ label = "sendOtpFunction
+(AWS::Lambda::Function)", shape =rectangle, fillcolor = "#B7E0FF" ];
+  "verifyOtpFunction" [ label = "verifyOtpFunction
+(AWS::Lambda::Function)", shape =rectangle, fillcolor = "#B7E0FF" ];
+  "OTPAPI" [ label = "OTPAPI
+(AWS::ApiGateway::RestApi)", shape =rectangle, fillcolor = "#E78F81" ];
+  "sendOtpFunction" -> "UserRegistration";
+  "sendOtpFunction" -> "otp_pinpoint_project";
+  "verifyOtpFunction" -> "otp_pinpoint_project";
+  "OTPAPI" -> "sendOtpFunction";
+  "OTPAPI" -> "verifyOtpFunction";
+}
