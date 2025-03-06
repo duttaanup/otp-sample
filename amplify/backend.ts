@@ -22,7 +22,7 @@ const pinpointProject = new Pinpoint.CfnApp(backend.stack, "otp_pinpoint_project
 
 backend.sendOtpFunction.addEnvironment("OTP_TABLE", otp_table.tableName);
 backend.sendOtpFunction.addEnvironment("PINPOINT_PROJECT_ID", pinpointProject.ref);
-backend.sendOtpFunction.addEnvironment("ORIGINATION_NUMBER", "+919953729194");
+backend.sendOtpFunction.addEnvironment("ORIGINATION_NUMBER", "<valid phone number>");
 backend.sendOtpFunction.addEnvironment("PINPOINT_REGION", Stack.of(backend.stack).region);
 
 
